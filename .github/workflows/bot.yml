@@ -2,24 +2,25 @@ name: Telegram Bot
 
 on:
   push:
-      branches: [ main ]
-        schedule:
-            - cron: '0 */6 * * *' # Restart every 6 hours to ensure it stays alive
+      branches:
+            - main
+              schedule:
+                  - cron: '0 */6 * * *'
 
-            jobs:
-              run-bot:
-                  runs-on: ubuntu-latest
-                      steps:
-                          - uses: actions/checkout@v3
-                              - name: Set up Python
-                                    uses: actions/setup-python@v4
-                                          with:
-                                                  python-version: '3.11'
-                                                      - name: Install dependencies
-                                                            run: |
-                                                                    python -m pip install --upgrade pip
-                                                                            pip install -r requirements.txt
-                                                                                - name: Run Bot
-                                                                                      run: python bot.py
-                                                                                            timeout-minutes: 350 # Run for nearly 6 hours before restarting
-                                                                                            
+                  jobs:
+                    run-bot:
+                        runs-on: ubuntu-latest
+                            steps:
+                                  - uses: actions/checkout@v3
+                                        - name: Set up Python
+                                                uses: actions/setup-python@v4
+                                                        with:
+                                                                  python-version: '3.11'
+                                                                        - name: Install dependencies
+                                                                                run: |
+                                                                                          python -m pip install --upgrade pip
+                                                                                                    pip install -r requirements.txt
+                                                                                                          - name: Run Bot
+                                                                                                                  run: python bot.py
+                                                                                                                          timeout-minutes: 350
+                                                                                                                          

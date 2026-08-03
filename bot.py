@@ -3,7 +3,7 @@ import os
 import time
 
 # User-provided bot token
-TOKEN = "8779388737:AAE-sZ*****"
+TOKEN = "8021833923:AAEhjczNhC7heaxgEIvjY4QYjFhtPLdThBQ"
 
 bot = telebot.TeleBot(TOKEN)
 
